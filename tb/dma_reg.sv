@@ -1,889 +1,581 @@
-class proc0_status extends uvm_reg;
-  `uvm_object_utils(intr)
-   
-  rand uvm_reg_field status;
-  rand uvm_reg_field mask;
-
-  function new (string name = "proc0_status");
-    super.new(name,32,UVM_NO_COVERAGE);
-  endfunction
-
-  function void build; 
-    
-    // Create bitfield
-    status = uvm_reg_field::type_id::create("status");   
-    // Configure
-    status.configure(.parent(this), 
-                     .size(16), 
-                     .lsb_pos(0), 
-                     .access("RW"),  
-                     .volatile(0), 
-                     .reset(0), 
-                     .has_reset(1), 
-                     .is_rand(1), 
-                     .individually_accessible(0)); 
-    // Below line is equivalen to above one   
-    // status.configure(this, 32,       0,   "RW",   0,        0,        1,        1,      0); 
-    //                  reg, bitwidth, lsb, access, volatile, reselVal, hasReset, isRand, fieldAccess
-    
-    mask = uvm_reg_field::type_id::create("mask");   
-    mask.configure(.parent(this), 
-                     .size(16), 
-                     .lsb_pos(16), 
-                     .access("RW"),  
-                     .volatile(0), 
-                     .reset(0), 
-                     .has_reset(1), 
-                     .is_rand(1), 
-                     .individually_accessible(0));    
-    endfunction
-endclass
-
-class proc1_status extends uvm_reg;
-  `uvm_object_utils(intr)
-   
-  rand uvm_reg_field status;
-  rand uvm_reg_field mask;
-
-  function new (string name = "proc1_status");
-    super.new(name,32,UVM_NO_COVERAGE);
-  endfunction
-
-  function void build; 
-    
-    // Create bitfield
-    status = uvm_reg_field::type_id::create("proc1_status");   
-    // Configure
-    status.configure(.parent(this), 
-                     .size(16), 
-                     .lsb_pos(0), 
-                     .access("RW"),  
-                     .volatile(0), 
-                     .reset(0), 
-                     .has_reset(1), 
-                     .is_rand(1), 
-                     .individually_accessible(0)); 
-    // Below line is equivalen to above one   
-    // status.configure(this, 32,       0,   "RW",   0,        0,        1,        1,      0); 
-    //                  reg, bitwidth, lsb, access, volatile, reselVal, hasReset, isRand, fieldAccess
-    
-    mask = uvm_reg_field::type_id::create("mask");   
-    mask.configure(.parent(this), 
-                     .size(16), 
-                     .lsb_pos(16), 
-                     .access("RW"),  
-                     .volatile(0), 
-                     .reset(0), 
-                     .has_reset(1), 
-                     .is_rand(1), 
-                     .individually_accessible(0));    
-    endfunction
-endclass
-
-class core0_joint extends uvm_reg;
-  `uvm_object_utils(intr)
-   
-  rand uvm_reg_field status;
-  rand uvm_reg_field mask;
-
-  function new (string name = "intr");
-    super.new(name,32,UVM_NO_COVERAGE);
-  endfunction
-
-  function void build; 
-    
-    // Create bitfield
-    status = uvm_reg_field::type_id::create("status");   
-    // Configure
-    status.configure(.parent(this), 
-                     .size(16), 
-                     .lsb_pos(0), 
-                     .access("RW"),  
-                     .volatile(0), 
-                     .reset(0), 
-                     .has_reset(1), 
-                     .is_rand(1), 
-                     .individually_accessible(0)); 
-    // Below line is equivalen to above one   
-    // status.configure(this, 32,       0,   "RW",   0,        0,        1,        1,      0); 
-    //                  reg, bitwidth, lsb, access, volatile, reselVal, hasReset, isRand, fieldAccess
-    
-    mask = uvm_reg_field::type_id::create("mask");   
-    mask.configure(.parent(this), 
-                     .size(16), 
-                     .lsb_pos(16), 
-                     .access("RW"),  
-                     .volatile(0), 
-                     .reset(0), 
-                     .has_reset(1), 
-                     .is_rand(1), 
-                     .individually_accessible(0));    
-    endfunction
-endclass
-
-class core1_joint extends uvm_reg;
-  `uvm_object_utils(intr)
-   
-  rand uvm_reg_field status;
-  rand uvm_reg_field mask;
-
-  function new (string name = "intr");
-    super.new(name,32,UVM_NO_COVERAGE);
-  endfunction
-
-  function void build; 
-    
-    // Create bitfield
-    status = uvm_reg_field::type_id::create("status");   
-    // Configure
-    status.configure(.parent(this), 
-                     .size(16), 
-                     .lsb_pos(0), 
-                     .access("RW"),  
-                     .volatile(0), 
-                     .reset(0), 
-                     .has_reset(1), 
-                     .is_rand(1), 
-                     .individually_accessible(0)); 
-    // Below line is equivalen to above one   
-    // status.configure(this, 32,       0,   "RW",   0,        0,        1,        1,      0); 
-    //                  reg, bitwidth, lsb, access, volatile, reselVal, hasReset, isRand, fieldAccess
-    
-    mask = uvm_reg_field::type_id::create("mask");   
-    mask.configure(.parent(this), 
-                     .size(16), 
-                     .lsb_pos(16), 
-                     .access("RW"),  
-                     .volatile(0), 
-                     .reset(0), 
-                     .has_reset(1), 
-                     .is_rand(1), 
-                     .individually_accessible(0));    
-    endfunction
-endclass
-
-class core0_prio extends uvm_reg;
-  `uvm_object_utils(intr)
-   
-  rand uvm_reg_field status;
-  rand uvm_reg_field mask;
-
-  function new (string name = "intr");
-    super.new(name,32,UVM_NO_COVERAGE);
-  endfunction
-
-  function void build; 
-    
-    // Create bitfield
-    status = uvm_reg_field::type_id::create("status");   
-    // Configure
-    status.configure(.parent(this), 
-                     .size(16), 
-                     .lsb_pos(0), 
-                     .access("RW"),  
-                     .volatile(0), 
-                     .reset(0), 
-                     .has_reset(1), 
-                     .is_rand(1), 
-                     .individually_accessible(0)); 
-    // Below line is equivalen to above one   
-    // status.configure(this, 32,       0,   "RW",   0,        0,        1,        1,      0); 
-    //                  reg, bitwidth, lsb, access, volatile, reselVal, hasReset, isRand, fieldAccess
-    
-    mask = uvm_reg_field::type_id::create("mask");   
-    mask.configure(.parent(this), 
-                     .size(16), 
-                     .lsb_pos(16), 
-                     .access("RW"),  
-                     .volatile(0), 
-                     .reset(0), 
-                     .has_reset(1), 
-                     .is_rand(1), 
-                     .individually_accessible(0));    
-    endfunction
-endclass
-
-class core1_prio extends uvm_reg;
-  `uvm_object_utils(intr)
-   
-  rand uvm_reg_field status;
-  rand uvm_reg_field mask;
-
-  function new (string name = "intr");
-    super.new(name,32,UVM_NO_COVERAGE);
-  endfunction
-
-  function void build; 
-    
-    // Create bitfield
-    status = uvm_reg_field::type_id::create("status");   
-    // Configure
-    status.configure(.parent(this), 
-                     .size(16), 
-                     .lsb_pos(0), 
-                     .access("RW"),  
-                     .volatile(0), 
-                     .reset(0), 
-                     .has_reset(1), 
-                     .is_rand(1), 
-                     .individually_accessible(0)); 
-    // Below line is equivalen to above one   
-    // status.configure(this, 32,       0,   "RW",   0,        0,        1,        1,      0); 
-    //                  reg, bitwidth, lsb, access, volatile, reselVal, hasReset, isRand, fieldAccess
-    
-    mask = uvm_reg_field::type_id::create("mask");   
-    mask.configure(.parent(this), 
-                     .size(16), 
-                     .lsb_pos(16), 
-                     .access("RW"),  
-                     .volatile(0), 
-                     .reset(0), 
-                     .has_reset(1), 
-                     .is_rand(1), 
-                     .individually_accessible(0));    
-    endfunction
-endclass
-
-
-class core0_clkdiv extends uvm_reg;
-  `uvm_object_utils(intr)
-   
-  rand uvm_reg_field status;
-  rand uvm_reg_field mask;
-
-  function new (string name = "intr");
-    super.new(name,32,UVM_NO_COVERAGE);
-  endfunction
-
-  function void build; 
-    
-    // Create bitfield
-    status = uvm_reg_field::type_id::create("status");   
-    // Configure
-    status.configure(.parent(this), 
-                     .size(16), 
-                     .lsb_pos(0), 
-                     .access("RW"),  
-                     .volatile(0), 
-                     .reset(0), 
-                     .has_reset(1), 
-                     .is_rand(1), 
-                     .individually_accessible(0)); 
-    // Below line is equivalen to above one   
-    // status.configure(this, 32,       0,   "RW",   0,        0,        1,        1,      0); 
-    //                  reg, bitwidth, lsb, access, volatile, reselVal, hasReset, isRand, fieldAccess
-    
-    mask = uvm_reg_field::type_id::create("mask");   
-    mask.configure(.parent(this), 
-                     .size(16), 
-                     .lsb_pos(16), 
-                     .access("RW"),  
-                     .volatile(0), 
-                     .reset(0), 
-                     .has_reset(1), 
-                     .is_rand(1), 
-                     .individually_accessible(0));    
-    endfunction
-endclass
-
-class core1_clkdiv extends uvm_reg;
-  `uvm_object_utils(intr)
-   
-  rand uvm_reg_field status;
-  rand uvm_reg_field mask;
-
-  function new (string name = "intr");
-    super.new(name,32,UVM_NO_COVERAGE);
-  endfunction
-
-  function void build; 
-    
-    // Create bitfield
-    status = uvm_reg_field::type_id::create("status");   
-    // Configure
-    status.configure(.parent(this), 
-                     .size(16), 
-                     .lsb_pos(0), 
-                     .access("RW"),  
-                     .volatile(0), 
-                     .reset(0), 
-                     .has_reset(1), 
-                     .is_rand(1), 
-                     .individually_accessible(0)); 
-    // Below line is equivalen to above one   
-    // status.configure(this, 32,       0,   "RW",   0,        0,        1,        1,      0); 
-    //                  reg, bitwidth, lsb, access, volatile, reselVal, hasReset, isRand, fieldAccess
-    
-    mask = uvm_reg_field::type_id::create("mask");   
-    mask.configure(.parent(this), 
-                     .size(16), 
-                     .lsb_pos(16), 
-                     .access("RW"),  
-                     .volatile(0), 
-                     .reset(0), 
-                     .has_reset(1), 
-                     .is_rand(1), 
-                     .individually_accessible(0));    
-    endfunction
-endclass
-
-
-class core0_start extends uvm_reg;
-  `uvm_object_utils(intr)
-   
-  rand uvm_reg_field status;
-  rand uvm_reg_field mask;
-
-  function new (string name = "intr");
-    super.new(name,32,UVM_NO_COVERAGE);
-  endfunction
-
-  function void build; 
-    
-    // Create bitfield
-    status = uvm_reg_field::type_id::create("status");   
-    // Configure
-    status.configure(.parent(this), 
-                     .size(16), 
-                     .lsb_pos(0), 
-                     .access("RW"),  
-                     .volatile(0), 
-                     .reset(0), 
-                     .has_reset(1), 
-                     .is_rand(1), 
-                     .individually_accessible(0)); 
-    // Below line is equivalen to above one   
-    // status.configure(this, 32,       0,   "RW",   0,        0,        1,        1,      0); 
-    //                  reg, bitwidth, lsb, access, volatile, reselVal, hasReset, isRand, fieldAccess
-    
-    mask = uvm_reg_field::type_id::create("mask");   
-    mask.configure(.parent(this), 
-                     .size(16), 
-                     .lsb_pos(16), 
-                     .access("RW"),  
-                     .volatile(0), 
-                     .reset(0), 
-                     .has_reset(1), 
-                     .is_rand(1), 
-                     .individually_accessible(0));    
-    endfunction
-endclass
-
-class core1_start extends uvm_reg;
-  `uvm_object_utils(intr)
-   
-  rand uvm_reg_field status;
-  rand uvm_reg_field mask;
-
-  function new (string name = "intr");
-    super.new(name,32,UVM_NO_COVERAGE);
-  endfunction
-
-  function void build; 
-    
-    // Create bitfield
-    status = uvm_reg_field::type_id::create("status");   
-    // Configure
-    status.configure(.parent(this), 
-                     .size(16), 
-                     .lsb_pos(0), 
-                     .access("RW"),  
-                     .volatile(0), 
-                     .reset(0), 
-                     .has_reset(1), 
-                     .is_rand(1), 
-                     .individually_accessible(0)); 
-    // Below line is equivalen to above one   
-    // status.configure(this, 32,       0,   "RW",   0,        0,        1,        1,      0); 
-    //                  reg, bitwidth, lsb, access, volatile, reselVal, hasReset, isRand, fieldAccess
-    
-    mask = uvm_reg_field::type_id::create("mask");   
-    mask.configure(.parent(this), 
-                     .size(16), 
-                     .lsb_pos(16), 
-                     .access("RW"),  
-                     .volatile(0), 
-                     .reset(0), 
-                     .has_reset(1), 
-                     .is_rand(1), 
-                     .individually_accessible(0));    
-    endfunction
-endclass
-
-// PERIPH_RX_CTRL
-class periph_rx_ctrl extends uvm_reg;
-  `uvm_object_utils(intr)
-   
-  rand uvm_reg_field status;
-  rand uvm_reg_field mask;
-
-  function new (string name = "intr");
-    super.new(name,32,UVM_NO_COVERAGE);
-  endfunction
-
-  function void build; 
-    
-    // Create bitfield
-    status = uvm_reg_field::type_id::create("status");   
-    // Configure
-    status.configure(.parent(this), 
-                     .size(16), 
-                     .lsb_pos(0), 
-                     .access("RW"),  
-                     .volatile(0), 
-                     .reset(0), 
-                     .has_reset(1), 
-                     .is_rand(1), 
-                     .individually_accessible(0)); 
-    // Below line is equivalen to above one   
-    // status.configure(this, 32,       0,   "RW",   0,        0,        1,        1,      0); 
-    //                  reg, bitwidth, lsb, access, volatile, reselVal, hasReset, isRand, fieldAccess
-    
-    mask = uvm_reg_field::type_id::create("mask");   
-    mask.configure(.parent(this), 
-                     .size(16), 
-                     .lsb_pos(16), 
-                     .access("RW"),  
-                     .volatile(0), 
-                     .reset(0), 
-                     .has_reset(1), 
-                     .is_rand(1), 
-                     .individually_accessible(0));    
-    endfunction
-endclass
-
-class periph_tx_ctrl extends uvm_reg;
-  `uvm_object_utils(intr)
-   
-  rand uvm_reg_field status;
-  rand uvm_reg_field mask;
-
-  function new (string name = "intr");
-    super.new(name,32,UVM_NO_COVERAGE);
-  endfunction
-
-  function void build; 
-    
-    // Create bitfield
-    status = uvm_reg_field::type_id::create("status");   
-    // Configure
-    status.configure(.parent(this), 
-                     .size(16), 
-                     .lsb_pos(0), 
-                     .access("RW"),  
-                     .volatile(0), 
-                     .reset(0), 
-                     .has_reset(1), 
-                     .is_rand(1), 
-                     .individually_accessible(0)); 
-    // Below line is equivalen to above one   
-    // status.configure(this, 32,       0,   "RW",   0,        0,        1,        1,      0); 
-    //                  reg, bitwidth, lsb, access, volatile, reselVal, hasReset, isRand, fieldAccess
-    
-    mask = uvm_reg_field::type_id::create("mask");   
-    mask.configure(.parent(this), 
-                     .size(16), 
-                     .lsb_pos(16), 
-                     .access("RW"),  
-                     .volatile(0), 
-                     .reset(0), 
-                     .has_reset(1), 
-                     .is_rand(1), 
-                     .individually_accessible(0));    
-    endfunction
-endclass
-
-
-// IDLE
-class idle extends uvm_reg;
-  `uvm_object_utils(intr)
-   
-  rand uvm_reg_field status;
-  rand uvm_reg_field mask;
-
-  function new (string name = "idle");
-    super.new(name,32,UVM_NO_COVERAGE);
-  endfunction
-
-  function void build; 
-    
-    // Create bitfield
-    status = uvm_reg_field::type_id::create("status");   
-    // Configure
-    status.configure(.parent(this), 
-                     .size(16), 
-                     .lsb_pos(0), 
-                     .access("RW"),  
-                     .volatile(0), 
-                     .reset(0), 
-                     .has_reset(1), 
-                     .is_rand(1), 
-                     .individually_accessible(0)); 
-    // Below line is equivalen to above one   
-    // status.configure(this, 32,       0,   "RW",   0,        0,        1,        1,      0); 
-    //                  reg, bitwidth, lsb, access, volatile, reselVal, hasReset, isRand, fieldAccess
-    
-    mask = uvm_reg_field::type_id::create("mask");   
-    mask.configure(.parent(this), 
-                     .size(16), 
-                     .lsb_pos(16), 
-                     .access("RW"),  
-                     .volatile(0), 
-                     .reset(0), 
-                     .has_reset(1), 
-                     .is_rand(1), 
-                     .individually_accessible(0));    
-    endfunction
-endclass
-
-
-// USER_DEF_STAT
-class user_def_stat extends uvm_reg;
-  `uvm_object_utils(intr)
-   
-  rand uvm_reg_field status;
-  rand uvm_reg_field mask;
-
-  function new (string name = "intr");
-    super.new(name,32,UVM_NO_COVERAGE);
-  endfunction
-
-  function void build; 
-    
-    // Create bitfield
-    status = uvm_reg_field::type_id::create("status");   
-    // Configure
-    status.configure(.parent(this), 
-                     .size(16), 
-                     .lsb_pos(0), 
-                     .access("RW"),  
-                     .volatile(0), 
-                     .reset(0), 
-                     .has_reset(1), 
-                     .is_rand(1), 
-                     .individually_accessible(0)); 
-    // Below line is equivalen to above one   
-    // status.configure(this, 32,       0,   "RW",   0,        0,        1,        1,      0); 
-    //                  reg, bitwidth, lsb, access, volatile, reselVal, hasReset, isRand, fieldAccess
-    
-    mask = uvm_reg_field::type_id::create("mask");   
-    mask.configure(.parent(this), 
-                     .size(16), 
-                     .lsb_pos(16), 
-                     .access("RW"),  
-                     .volatile(0), 
-                     .reset(0), 
-                     .has_reset(1), 
-                     .is_rand(1), 
-                     .individually_accessible(0));    
-    endfunction
-endclass
-
-// USER_DEF0_STAT0
-class user_def0_stat0 extends uvm_reg;
-  `uvm_object_utils(intr)
-   
-  rand uvm_reg_field status;
-  rand uvm_reg_field mask;
-
-  function new (string name = "intr");
-    super.new(name,32,UVM_NO_COVERAGE);
-  endfunction
-
-  function void build; 
-    
-    // Create bitfield
-    status = uvm_reg_field::type_id::create("status");   
-    // Configure
-    status.configure(.parent(this), 
-                     .size(16), 
-                     .lsb_pos(0), 
-                     .access("RW"),  
-                     .volatile(0), 
-                     .reset(0), 
-                     .has_reset(1), 
-                     .is_rand(1), 
-                     .individually_accessible(0)); 
-    // Below line is equivalen to above one   
-    // status.configure(this, 32,       0,   "RW",   0,        0,        1,        1,      0); 
-    //                  reg, bitwidth, lsb, access, volatile, reselVal, hasReset, isRand, fieldAccess
-    
-    mask = uvm_reg_field::type_id::create("mask");   
-    mask.configure(.parent(this), 
-                     .size(16), 
-                     .lsb_pos(16), 
-                     .access("RW"),  
-                     .volatile(0), 
-                     .reset(0), 
-                     .has_reset(1), 
-                     .is_rand(1), 
-                     .individually_accessible(0));    
-    endfunction
-endclass
-
-
-// USER_DEF0_STAT1
-class user_def0_stat1 extends uvm_reg;
-  `uvm_object_utils(intr)
-   
-  rand uvm_reg_field status;
-  rand uvm_reg_field mask;
-
-  function new (string name = "intr");
-    super.new(name,32,UVM_NO_COVERAGE);
-  endfunction
-
-  function void build; 
-    
-    // Create bitfield
-    status = uvm_reg_field::type_id::create("status");   
-    // Configure
-    status.configure(.parent(this), 
-                     .size(16), 
-                     .lsb_pos(0), 
-                     .access("RW"),  
-                     .volatile(0), 
-                     .reset(0), 
-                     .has_reset(1), 
-                     .is_rand(1), 
-                     .individually_accessible(0)); 
-    // Below line is equivalen to above one   
-    // status.configure(this, 32,       0,   "RW",   0,        0,        1,        1,      0); 
-    //                  reg, bitwidth, lsb, access, volatile, reselVal, hasReset, isRand, fieldAccess
-    
-    mask = uvm_reg_field::type_id::create("mask");   
-    mask.configure(.parent(this), 
-                     .size(16), 
-                     .lsb_pos(16), 
-                     .access("RW"),  
-                     .volatile(0), 
-                     .reset(0), 
-                     .has_reset(1), 
-                     .is_rand(1), 
-                     .individually_accessible(0));    
-    endfunction
-endclass
-
-
-// USER_DEF1_STAT0
-class user_def1_stat0 extends uvm_reg;
-  `uvm_object_utils(intr)
-   
-  rand uvm_reg_field status;
-  rand uvm_reg_field mask;
-
-  function new (string name = "intr");
-    super.new(name,32,UVM_NO_COVERAGE);
-  endfunction
-
-  function void build; 
-    
-    // Create bitfield
-    status = uvm_reg_field::type_id::create("status");   
-    // Configure
-    status.configure(.parent(this), 
-                     .size(16), 
-                     .lsb_pos(0), 
-                     .access("RW"),  
-                     .volatile(0), 
-                     .reset(0), 
-                     .has_reset(1), 
-                     .is_rand(1), 
-                     .individually_accessible(0)); 
-    // Below line is equivalen to above one   
-    // status.configure(this, 32,       0,   "RW",   0,        0,        1,        1,      0); 
-    //                  reg, bitwidth, lsb, access, volatile, reselVal, hasReset, isRand, fieldAccess
-    
-    mask = uvm_reg_field::type_id::create("mask");   
-    mask.configure(.parent(this), 
-                     .size(16), 
-                     .lsb_pos(16), 
-                     .access("RW"),  
-                     .volatile(0), 
-                     .reset(0), 
-                     .has_reset(1), 
-                     .is_rand(1), 
-                     .individually_accessible(0));    
-    endfunction
-endclass
-
-// USER_DEF1_STAT1
-class user_def1_stat1 extends uvm_reg;
-  `uvm_object_utils(intr)
-   
-  rand uvm_reg_field status;
-  rand uvm_reg_field mask;
-
-  function new (string name = "intr");
-    super.new(name,32,UVM_NO_COVERAGE);
-  endfunction
-
-  function void build; 
-    
-    // Create bitfield
-    status = uvm_reg_field::type_id::create("status");   
-    // Configure
-    status.configure(.parent(this), 
-                     .size(16), 
-                     .lsb_pos(0), 
-                     .access("RW"),  
-                     .volatile(0), 
-                     .reset(0), 
-                     .has_reset(1), 
-                     .is_rand(1), 
-                     .individually_accessible(0)); 
-    // Below line is equivalen to above one   
-    // status.configure(this, 32,       0,   "RW",   0,        0,        1,        1,      0); 
-    //                  reg, bitwidth, lsb, access, volatile, reselVal, hasReset, isRand, fieldAccess
-    
-    mask = uvm_reg_field::type_id::create("mask");   
-    mask.configure(.parent(this), 
-                     .size(16), 
-                     .lsb_pos(16), 
-                     .access("RW"),  
-                     .volatile(0), 
-                     .reset(0), 
-                     .has_reset(1), 
-                     .is_rand(1), 
-                     .individually_accessible(0));    
-    endfunction
-endclass
-
-
-
-//	Register Block Definition
-class dma_reg_model extends uvm_reg_block;
-  `uvm_object_utils(dma_reg_model)
-  
-  // register instances 
-  rand proc0_status 	  reg_proc0_status; 
-  rand proc1_status 	  reg_proc1_status;
-  rand core0_joint 	    reg_core0_joint;
-  rand core1_joint      reg_core1_joint;
-  rand core0_prio       reg_core0_prio;
-  rand core1_prio       reg_core1_prio;
-  rand core0_clkdiv     reg_core0_clkdiv;
-  rand core1_clkdiv     reg_core1_clkdiv;
-  rand core0_start      reg_core0_start;
-  rand core1_start      reg_core1_start;
-  rand periph_rx_ctrl   reg_periph_rx_ctrl;
-  rand periph_tx_ctrl   reg_periph_tx_ctrl;
-  rand idle             reg_idle;
-  rand user_def_stat    reg_user_def_stat;
-  rand user_def0_stat0  reg_user_def0_stat0;
-  rand user_def0_stat1  reg_user_def0_stat1;
-  rand user_def1_stat0  reg_user_def1_stat0;
-  rand user_def1_stat1  reg_user_def1_stat1;
-  
-  
-  function new (string name = "");
-    super.new(name, build_coverage(UVM_NO_COVERAGE));
-  endfunction
-
-  function void build;
-    
-    // reg creation
-    reg_proc0_status = proc0_status::type_id::create("reg_intr");
-    reg_proc0_status.build();
-    reg_proc0_status.configure(this);
-    //r0.add_hdl_path_slice("r0", 0, 8);      // name, offset, bitwidth
- 
-    reg_proc1_status = proc1_status::type_id::create("reg_ctrl");
-    reg_proc1_status.build();
-    reg_proc1_status.configure(this);
-    
-    reg_core0_joint = core0_joint::type_id::create("reg_io_addr");
-    reg_core0_joint.build();
-    reg_core0_joint.configure(this);
-  
-    reg_core1_joint = core1_joint::type_id::create("reg_mem_addr");
-    reg_core1_joint.build();
-    reg_core1_joint.configure(this);
-    
-    reg_core0_prio = core0_prio::type_id::create("reg_extra_info");
-    reg_core0_prio.build();
-    reg_core0_prio.configure(this);
-
-    reg_core1_prio = core1_prio::type_id::create("reg_extra_info");
-    reg_core1_prio.build();
-    reg_core1_prio.configure(this);
-
-    reg_core0_clkdiv = core0_clkdiv::type_id::create("reg_extra_info");
-    reg_core0_clkdiv.build();
-    reg_core0_clkdiv.configure(this);
-
-    reg_core1_clkdiv = core1_clkdiv::type_id::create("reg_extra_info");
-    reg_core1_clkdiv.build();
-    reg_core1_clkdiv.configure(this);
-
-    reg_core0_start = core0_start::type_id::create("reg_extra_info");
-    reg_core0_start.build();
-    reg_core0_start.configure(this);
-
-    reg_core1_start = core1_start::type_id::create("reg_extra_info");
-    reg_core1_start.build();
-    reg_core1_start.configure(this);
-
-    reg_periph_rx_ctrl = periph_rx_ctrlt::type_id::create("reg_extra_info");
-    reg_periph_rx_ctrl.build();
-    reg_periph_rx_ctrl.configure(this);
-
-    reg_periph_tx_ctrl = periph_tx_ctrlt::type_id::create("reg_extra_info");
-    reg_periph_tx_ctrl.build();
-    reg_periph_tx_ctrl.configure(this);
-
-    reg_idle = idle::type_id::create("reg_extra_info");
-    reg_idle.build();
-    reg_idle.configure(this);
-
-    reg_user_def_stat = user_def_stat::type_id::create("reg_user_def_stat");
-    reg_user_def_stat.build();
-    reg_user_def_stat.configure(this);
-
-    reg_def0_stat0 = def0_stat0::type_id::create("reg_def0_stat0");
-    reg_def0_stat0.build();
-    reg_def0_stat0.configure(this);
-
-    reg_def0_stat1 = def0_stat1::type_id::create("reg_def0_stat1");
-    reg_def0_stat1.build();
-    reg_def0_stat1.configure(this);
-
-    reg_def1_stat0 = def1_stat0::type_id::create("reg_def1_stat0");
-    reg_def1_stat0.build();
-    reg_def1_stat0.configure(this);
-
-    reg_def1_stat1 = def1_stat1::type_id::create("reg_def1_stat1");
-    reg_def1_stat1.build();
-    reg_def1_stat1.configure(this);    
-    
-    // memory map creation and reg map to it
-    default_map = create_map("my_map", 0, 4, UVM_LITTLE_ENDIAN); // name, base, nBytes
-    default_map.add_reg(reg_proc0_status, 'h0, "RW");  // reg, offset, access
-    default_map.add_reg(reg_proc1_status, 'h4, "RW");
-    default_map.add_reg(reg_proc2_status, 'h8, "RW");
-    default_map.add_reg(reg_proc3_status, 'hC, "RW");
-    default_map.add_reg(reg_proc4_status, 'h10, "RW");
-    default_map.add_reg(reg_proc5_status, 'h14, "RW");
-    default_map.add_reg(reg_proc6_status, 'h18, "RW");
-    default_map.add_reg(reg_proc7_status, 'h1C, "RW");
-    default_map.add_reg(reg_core0_joint, 'h30, "RW");  // reg, offset, access
-    default_map.add_reg(reg_core1_joint, 'h34, "RW");
-    default_map.add_reg(reg_core0_prio, 'h38, "RW");
-    default_map.add_reg(reg_core1_prio, 'h3C, "RW");
-    default_map.add_reg(reg_core0_clkdiv, 'h40, "RW");
-    default_map.add_reg(reg_core1_clkdiv, 'h44, "RW");  // reg, offset, access
-    default_map.add_reg(reg_core0_start, 'h48, "RW");
-    default_map.add_reg(reg_core1_start, 'h4c, "RW");
-    default_map.add_reg(reg_periph_rx_ctrl, 'h3C, "RW");
-    default_map.add_reg(reg_periph_tx_ctrl, 'h50, "RW");
-    default_map.add_reg(reg_idle	, 'h54, "RW");  // reg, offset, access
-    default_map.add_reg(reg_user_def_stat	, 'hD0, "RW");
-    default_map.add_reg(reg_user_def_stat	, 'hE0, "RW");
-    default_map.add_reg(reg_user_def0_stat0, 'hF0, "RW");
-    default_map.add_reg(reg_user_def0_stat1, 'hF4, "RW");
-    default_map.add_reg(reg_user_def1_stat0, 'hF8, "RW");
-    default_map.add_reg(reg_user_def1_stat1, 'hFC, "RW");
-    
-    lock_model();
-  endfunction
-endclass
+//============================================================
+// Common typedef for register fields
+//============================================================
+typedef struct {
+	string  name;
+	int     size;
+	int     lsb;
+	string  access;   // "RW" / "RO" / "W"
+} reg_field_t;
+
+
+//============================================================
+// Helper functions for building registers
+//============================================================
+function automatic uvm_reg build_reg
+(
+	uvm_reg_block parent,
+	string        name,
+	int unsigned  addr,
+	reg_field_t   fields[] = '{},
+	string        reg_access = "RW"     // overall access type
+);
+	uvm_reg r;
+
+	r = uvm_reg::type_id::create(name);
+	r.configure(parent, 4, UVM_NO_COVERAGE);
+	r.build();  // REQUIRED
+
+	foreach (fields[i]) begin
+		r.add_field
+		(
+			.name(fields[i].name),
+			.size(fields[i].size),
+			.lsb_pos(fields[i].lsb),
+			.access(fields[i].access)
+		);
+	end
+
+	parent.default_map.add_reg(r, addr, reg_access);
+	return r;
+endfunction
+
+
+//============================================================
+// Shortcut wrappers
+//============================================================
+function automatic uvm_reg build_rw_reg
+(
+	uvm_reg_block parent, string n, int addr, reg_field_t fields[]
+);
+	return build_reg(parent, n, addr, fields, "RW");
+endfunction
+
+function automatic uvm_reg build_ro_reg
+(
+	uvm_reg_block parent, string n, int addr, reg_field_t fields[]
+);
+	return build_reg(parent, n, addr, fields, "R");
+endfunction
+
+function automatic uvm_reg build_wo_reg
+(
+	uvm_reg_block parent, string n, int addr, reg_field_t fields[]
+);
+	return build_reg(parent, n, addr, fields, "W");
+endfunction
+
+class dma_channel_reg_block extends uvm_reg_block;
+
+	// Registers
+	uvm_reg CMD_REG0;
+	uvm_reg CMD_REG1;
+	uvm_reg CMD_REG2;
+	uvm_reg CMD_REG3;
+
+	uvm_reg STATIC_REG0;
+	uvm_reg STATIC_REG1;
+	uvm_reg STATIC_REG2;
+	uvm_reg STATIC_REG3;
+	uvm_reg STATIC_REG4;
+
+	uvm_reg RESTRICT_REG;
+	uvm_reg READ_OFFSET_REG;
+	uvm_reg WRITE_OFFSET_REG;
+	uvm_reg FIFO_FULLNESS_REG;
+	uvm_reg CMD_OUTS_REG;
+
+	uvm_reg CH_ENABLE_REG;
+	uvm_reg CH_START_REG;
+	uvm_reg CH_ACTIVE_REG;
+	uvm_reg COUNT_REG;
+
+	uvm_reg INT_RAWSTAT_REG;
+	uvm_reg INT_CLEAR_REG;
+	uvm_reg INT_ENABLE_REG;
+	uvm_reg INT_STATUS_REG;
+
+	`uvm_object_utils(dma_channel_reg_block)
+
+	function new(string name = "dma_channel_reg_block");
+		super.new(name, UVM_NO_COVERAGE);
+	endfunction
+
+
+	//------------------------------------------------------------
+	// BUILD FUNCTION
+	//------------------------------------------------------------
+	virtual function void build();
+
+		default_map = create_map("chan_map", 'h0, 4, UVM_LITTLE_ENDIAN);
+
+		//--------------------------------------------------------
+		// CMD_REG0 0x00
+		//--------------------------------------------------------
+		CMD_REG0 = build_rw_reg(this, "CMD_REG0", 'h00,
+			'{ '{ "RD_START_ADDR", 32, 0, "RW" } }
+		);
+
+		//--------------------------------------------------------
+		// CMD_REG1 0x04
+		//--------------------------------------------------------
+		CMD_REG1 = build_rw_reg(this, "CMD_REG1", 'h04,
+			'{ '{ "WR_START_ADDR", 32, 0, "RW" } }
+		);
+
+		//--------------------------------------------------------
+		// CMD_REG2 0x08
+		// Clean dual-mode representation:
+		// - BUFFER_SIZE 16:0
+		// - X_SIZE 8:16
+		// - Y_SIZE 8:24
+		//--------------------------------------------------------
+		CMD_REG2 = build_rw_reg(this, "CMD_REG2", 'h08,
+			'{
+				'{ "BUFFER_SIZE", 16, 0,  "RW" },
+				'{ "X_SIZE",       8, 16, "RW" },
+				'{ "Y_SIZE",       8, 24, "RW" }
+			}
+		);
+
+		//--------------------------------------------------------
+		// CMD_REG3 0x0C
+		//--------------------------------------------------------
+		CMD_REG3 = build_rw_reg(this, "CMD_REG3", 'h0C,
+			'{
+				'{ "CMD_SET_INT",   1, 0, "RW" },
+				'{ "CMD_LAST",      1, 1, "RW" },
+				'{ "CMD_NEXT_ADDR",28, 4, "RW" }
+			}
+		);
+
+		//--------------------------------------------------------
+		// STATIC_REG0..4  0x10–0x20
+		//--------------------------------------------------------
+		STATIC_REG0 = build_rw_reg(this, "STATIC_REG0", 'h10,
+			'{
+				'{ "RD_BURST_MAX_SIZE", 10, 0,  "RW" },
+				'{ "RD_TOKENS",          6, 16, "RW" },
+				'{ "RD_OUTSTANDING",     1, 22, "RW" },
+				'{ "RD_INCR",            1, 23, "RW" }
+			}
+		);
+
+		STATIC_REG1 = build_rw_reg(this, "STATIC_REG1", 'h14,
+			'{
+				'{ "WR_BURST_MAX_SIZE", 10, 0,  "RW" },
+				'{ "WR_TOKENS",          6, 16, "RW" },
+				'{ "WR_OUTSTANDING",     1, 22, "RW" },
+				'{ "WR_INCR",            1, 23, "RW" }
+			}
+		);
+
+		STATIC_REG2 = build_rw_reg(this, "STATIC_REG2", 'h18,
+			'{
+				'{ "BLOCK",      1, 0,  "RW" },
+				'{ "JOINT",      1, 1,  "RW" },
+				'{ "AUTO_RETRY", 1, 2,  "RW" },
+				'{ "RD_PORT_NUM",4, 8,  "RW" },
+				'{ "WR_PORT_NUM",4, 12, "RW" },
+				'{ "END_SWAP",   2, 28, "RW" }
+			}
+		);
+
+		STATIC_REG3 = build_rw_reg(this, "STATIC_REG3", 'h1C,
+			'{
+				'{ "RD_WAIT_LIMIT",12, 0,  "RW" },
+				'{ "WR_WAIT_LIMIT",12,16, "RW" }
+			}
+		);
+
+		STATIC_REG4 = build_rw_reg(this, "STATIC_REG4", 'h20,
+			'{
+				'{ "RD_PERIPH_NUM",   5, 0,  "RW" },
+				'{ "RD_PERIPH_BLOCK", 1, 5,  "RW" },
+				'{ "WR_PERIPH_NUM",   5, 16, "RW" },
+				'{ "WR_PERIPH_BLOCK", 1, 21, "RW" }
+			}
+		);
+
+		//--------------------------------------------------------
+		// READ-ONLY REGISTERS 0x2C–0x3C
+		//--------------------------------------------------------
+		RESTRICT_REG = build_ro_reg(this, "RESTRICT_REG", 'h2C,
+			'{
+				'{ "ALLOW_FULL_FIFO",    1, 0, "RO" },
+				'{ "ALLOW_JOINT_BURST",  1, 1, "RO" },
+				'{ "RD_OUTSTANDING_STAT",1, 2, "RO" },
+				'{ "WR_OUTSTANDING_STAT",1, 3, "RO" }
+			}
+		);
+
+		READ_OFFSET_REG = build_ro_reg(this, "READ_OFFSET_REG", 'h30,
+			'{
+				'{ "RD_OFFSET",  16, 0,  "RO" },
+				'{ "RD_X_OFFSET", 8, 16, "RO" },
+				'{ "RD_Y_OFFSET", 8, 24, "RO" }
+			}
+		);
+
+		WRITE_OFFSET_REG = build_ro_reg(this, "WRITE_OFFSET_REG", 'h34,
+			'{
+				'{ "WR_OFFSET",16,0, "RO" }
+			}
+		);
+
+		FIFO_FULLNESS_REG = build_ro_reg(this, "FIFO_FULLNESS_REG", 'h38,
+			'{
+				'{ "RD_GAP",      10, 0,  "RO" },
+				'{ "WR_FULLNESS",10, 16, "RO" }
+			}
+		);
+
+		CMD_OUTS_REG = build_ro_reg(this, "CMD_OUTS_REG", 'h3C,
+			'{
+				'{ "RD_CMD_OUTS", 6, 0, "RO" },
+				'{ "WR_CMD_OUTS", 6, 8, "RO" }
+			}
+		);
+
+		//--------------------------------------------------------
+		// CH_ENABLE / START / ACTIVE
+		//--------------------------------------------------------
+		CH_ENABLE_REG = build_rw_reg(this, "CH_ENABLE_REG", 'h40,
+			'{
+				'{ "CH_ENABLE",1,0,"RW" }
+			}
+		);
+
+		CH_START_REG = build_wo_reg(this, "CH_START_REG", 'h44,
+			'{
+				'{ "CH_START",1,0,"W" }
+			}
+		);
+
+		CH_ACTIVE_REG = build_ro_reg(this, "CH_ACTIVE_REG", 'h48,
+			'{
+				'{ "CH_RD_ACTIVE",1,0,"RO" },
+				'{ "CH_WR_ACTIVE",1,1,"RO" }
+			}
+		);
+
+		COUNT_REG = build_ro_reg(this, "COUNT_REG", 'h50,
+			'{
+				'{ "BUFF_COUNT",16,0,"RO" },
+				'{ "INT_COUNT", 6,16,"RO" }
+			}
+		);
+
+		//--------------------------------------------------------
+		// INTERRUPT REGISTERS 0xA0–0xAC
+		//--------------------------------------------------------
+		INT_RAWSTAT_REG = build_rw_reg(this, "INT_RAWSTAT_REG", 'hA0,
+			'{
+				'{ "INT_CH_END",        1, 0,  "RW" },
+				'{ "INT_RD_DECERR",     1, 1,  "RW" },
+				'{ "INT_RD_SLVERR",     1, 2,  "RW" },
+				'{ "INT_RD_OK",         1, 3,  "RW" },
+				'{ "INT_RD_LAST",       1, 4,  "RW" },
+				'{ "INT_WR_DECERR",     1, 5,  "RW" },
+				'{ "INT_WR_SLVERR",     1, 6,  "RW" },
+				'{ "INT_WR_OK",         1, 7,  "RW" },
+				'{ "INT_WR_LAST",       1, 8,  "RW" },
+				'{ "INT_TIMEOUT",       1, 9,  "RW" },
+				'{ "INT_RETRY_FAIL",    1,10, "RW" },
+				'{ "INT_PERIPH_ERR",    1,11, "RW" }
+			}
+		);
+
+		INT_CLEAR_REG = build_wo_reg(this, "INT_CLEAR_REG", 'hA4,
+			'{
+				'{ "INT_CLEAR_BITS",12,0,"W" }
+			}
+		);
+
+		INT_ENABLE_REG = build_rw_reg(this, "INT_ENABLE_REG", 'hA8,
+			'{
+				'{ "INT_EN_BITS",12,0,"RW" }
+			}
+		);
+
+		INT_STATUS_REG = build_ro_reg(this, "INT_STATUS_REG", 'hAC,
+			'{
+				'{ "INT_STATUS_BITS",12,0,"RO" }
+			}
+		);
+
+	endfunction : build
+
+endclass : dma_channel_reg_block
+
+
+//============================================================
+// CORE REGISTER BLOCK  (8 channels + shared registers)
+//============================================================
+class dma_core_reg_block extends uvm_reg_block;
+
+	//--------------------------------------------------------
+	// Parameters
+	//--------------------------------------------------------
+	localparam int NUM_CHANNELS       = 8;
+	localparam int CHANNEL_OFFSET     = 'h100;   // 256 bytes
+	localparam int SHARED_BASE_OFFSET = 'h1000;  // After channel spaces
+
+	// core_id is provided by constructor
+	int core_id;
+
+	//--------------------------------------------------------
+	// Per-channel register blocks
+	//--------------------------------------------------------
+	dma_channel_reg_block channel[NUM_CHANNELS];
+
+	//--------------------------------------------------------
+	// Shared registers
+	//--------------------------------------------------------
+	uvm_reg INT_STATUS[8];          // INT0_STATUS..INT7_STATUS
+
+	uvm_reg CORE_JOINT_MODE;
+	uvm_reg CORE_PRIORITY;
+	uvm_reg CORE_CLKDIV;
+	uvm_reg CORE_CH_START;
+
+	uvm_reg PERIPH_RX_CTRL;
+	uvm_reg PERIPH_TX_CTRL;
+
+	uvm_reg IDLE;
+	uvm_reg USER_DEF_STATUS;
+	uvm_reg USER_CORE_DEF_STATUS1;
+
+	`uvm_object_utils(dma_core_reg_block)
+
+
+	//--------------------------------------------------------
+	// Constructor
+	//--------------------------------------------------------
+	function new(string name="dma_core_reg_block", int id=0);
+		super.new(name, UVM_NO_COVERAGE);
+		core_id = id;
+	endfunction
+
+
+	//--------------------------------------------------------
+	// BUILD
+	//--------------------------------------------------------
+	virtual function void build();
+
+		// Core map base: 0x0000 for core0, 0x0800 for core1
+		default_map = create_map($sformatf("core%0d_map", core_id),
+		                         core_id == 0 ? 32'h0000 : 32'h0800,
+		                         4, UVM_LITTLE_ENDIAN);
+
+		//====================================================
+		// CHANNEL SUBMAPS  (8 channels)
+		//====================================================
+		for (int ch = 0; ch < NUM_CHANNELS; ch++) begin
+
+			string nm = $sformatf("channel%0d", ch);
+
+			channel[ch] = dma_channel_reg_block::type_id::create(nm);
+			channel[ch].configure(this);
+			channel[ch].build();
+
+			// Add submap @ base + ch * CHANNEL_OFFSET
+			default_map.add_submap(
+				channel[ch].default_map,
+				default_map.get_base_addr() + ch * CHANNEL_OFFSET
+			);
+		end
+
+
+		//====================================================
+		// SHARED INTERRUPT REGISTERS 0x1000 + core offset
+		//
+		// Each INTx_STATUS register holds:
+		//  bit[0]   CORE0_CH0_INTx_STAT
+		//  ...
+		//  bit[7]   CORE0_CH7_INTx_STAT
+		//  bit[8]   CORE1_CH0_INTx_STAT
+		//  ...
+		//  bit[15]  CORE1_CH7_INTx_STAT
+		//
+		// This matches a 2-core system (16 channels).
+		//====================================================
+		for (int i = 0; i < 8; i++) begin
+
+			reg_field_t fields[$];
+
+			// 8 bits for this core channels
+			for (int ch = 0; ch < 8; ch++) begin
+				fields.push_back(
+					'{
+						$psprintf("CORE%0d_CH%0d_INT%0d", core_id, ch, i),
+						1,
+						ch,
+						"RO"
+					}
+				);
+			end
+
+			// 8 bits for the OTHER core channels
+			int other_core = (core_id == 0) ? 1 : 0;
+			for (int ch = 0; ch < 8; ch++) begin
+				fields.push_back(
+					'{
+						$psprintf("CORE%0d_CH%0d_INT%0d", other_core, ch, i),
+						1,
+						8 + ch,
+						"RO"
+					}
+				);
+			end
+
+			INT_STATUS[i] = build_ro_reg(
+				this,
+				$psprintf("INT%0d_STATUS", i),
+				SHARED_BASE_OFFSET + i * 4,
+				fields
+			);
+		end
+
+
+		//====================================================
+		// CORE_JOINT_MODE   (RW)
+		//====================================================
+		CORE_JOINT_MODE = build_rw_reg(this, "CORE_JOINT_MODE",
+			32'h1030 + core_id*4,
+			'{
+				'{ "JOINT_MODE", 1, 0, "RW" }
+			}
+		);
+
+
+		//====================================================
+		// CORE_PRIORITY  (RW, 32-bit raw)
+		//====================================================
+		CORE_PRIORITY = build_rw_reg(this, "CORE_PRIORITY",
+			32'h1038 + core_id*4,
+			'{}
+		);
+
+
+		//====================================================
+		// CORE_CLKDIV
+		//====================================================
+		CORE_CLKDIV = build_rw_reg(this, "CORE_CLKDIV",
+			32'h1040 + core_id*4,
+			'{
+				'{ "CLKDIV_RATIO", 4, 0, "RW" }
+			}
+		);
+
+
+		//====================================================
+		// CORE_CH_START  (Write-only, 8 bit field)
+		//====================================================
+		CORE_CH_START = build_wo_reg(this, "CORE_CH_START",
+			32'h1048 + core_id*4,
+			'{
+				'{ "CHANNEL_START", 8, 0, "W" }
+			}
+		);
+
+
+		//====================================================
+		// PERIPH_RX_CTRL / PERIPH_TX_CTRL
+		//====================================================
+		PERIPH_RX_CTRL = build_rw_reg(this, "PERIPH_RX_CTRL",
+			32'h1050,
+			'{}
+		);
+
+		PERIPH_TX_CTRL = build_rw_reg(this, "PERIPH_TX_CTRL",
+			32'h1054,
+			'{}
+		);
+
+
+		//====================================================
+		// IDLE register  (RO)
+		//====================================================
+		IDLE = build_ro_reg(this, "IDLE", 32'h10D0, '{});
+
+
+		//====================================================
+		// USER-DEFINED STATUS
+		//====================================================
+		USER_DEF_STATUS = build_ro_reg(this, "USER_DEF_STATUS",
+			32'h10E0, '{}
+		);
+
+		USER_CORE_DEF_STATUS1 = build_ro_reg(this, "USER_CORE_DEF_STATUS1",
+			32'h10F4, '{}
+		);
+
+	endfunction : build
+
+endclass : dma_core_reg_block
+
+
+//============================================================
+// TOP REGISTER BLOCK  (2 cores)
+//============================================================
+class dma_top_reg_block extends uvm_reg_block;
+
+	//--------------------------------------------------------
+	// Parameters
+	//--------------------------------------------------------
+	localparam int NUM_CORES = 2;
+
+	// Core base offsets
+	localparam int CORE_OFFSET[NUM_CORES] = '{32'h0000, 32'h0800};
+
+	//--------------------------------------------------------
+	// Core register blocks
+	//--------------------------------------------------------
+	dma_core_reg_block core[NUM_CORES];
+
+	`uvm_object_utils(dma_top_reg_block)
+
+
+	//--------------------------------------------------------
+	// Constructor
+	//--------------------------------------------------------
+	function new(string name = "dma_top_reg_block");
+		super.new(name, UVM_NO_COVERAGE);
+	endfunction
+
+
+	//--------------------------------------------------------
+	// BUILD
+	//--------------------------------------------------------
+	virtual function void build();
+
+		//----------------------------------------------------
+		// Create top-level map
+		//----------------------------------------------------
+		default_map = create_map("dma_top_map", 0, 4, UVM_LITTLE_ENDIAN);
+
+		//----------------------------------------------------
+		// Build 2 cores
+		//----------------------------------------------------
+		for (int c = 0; c < NUM_CORES; c++) begin
+
+			// Create core block with core_id
+			core[c] = dma_core_reg_block::type_id::create(
+				$sformatf("core%0d", c),
+				/* core_id */ c
+			);
+
+			core[c].configure(this);
+			core[c].build();
+
+			// Add core submap at proper offset
+			default_map.add_submap(
+				core[c].default_map,
+				CORE_OFFSET[c]
+			);
+		end
+
+	endfunction : build
+
+endclass : dma_top_reg_block;

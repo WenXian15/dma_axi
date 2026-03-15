@@ -1,22 +1,22 @@
 import uvm_pkg::*;
 
-class apb_tran#() extends uvm_sequence_item;
-  typedef apb_tran#(d_width, a_width) this_type_t;
-  `uvm_object_param_utils(apb_tran#(d_width, a_width));
+class apb_sequence_item#() extends uvm_sequence_item;
+  `uvm_object_utils(apb_sequence_item)
   
     //  Group: Variables
     bit pclken;
     bit psel;
     bit penable;
-    rand bit [a_width-1:0] paddr;
+    bit [12:0] paddr;
     bit pwrite;
-    rand bit [d_width-1:0] pwdata;
-  
+    bit [31:0] pwdata;
+    bit [31:0] prdata;  // captured read data from driver
+
   // Constructor: new
-  function new(string name = "apb_tran");
+  function new(string name = "apb_sequence_item");
     // super.new() calls the constructor of the parent class. 
     // Since axi_transaction extends uvm_sequence_item, it calls uvm_sequence_item::new().
     super.new(name);  
   endfunction: new
 
-endclass: apb_tran
+endclass: apb_sequence_item

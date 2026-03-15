@@ -33,11 +33,9 @@
 //--
 //-- Source file: dma.v
 //---------------------------------------------------------
-
-
   
 module dma_axi64(clk,reset,scan_en,idle,INT,periph_tx_req,periph_tx_clr,periph_rx_req,periph_rx_clr,pclken,psel,penable,paddr,pwrite,pwdata,prdata,pslverr,pready,AWID0,AWADDR0,AWLEN0,AWSIZE0,AWVALID0,AWREADY0,WID0,WDATA0,WSTRB0,WLAST0,WVALID0,WREADY0,BID0,BRESP0,BVALID0,BREADY0,ARID0,ARADDR0,ARLEN0,ARSIZE0,ARVALID0,ARREADY0,RID0,RDATA0,RRESP0,RLAST0,RVALID0,RREADY0);
-`include "dma_axi64_defines.v"
+`include "./src/dma_axi64/dma_axi64_defines.v"
    
    input                                clk;
    input                 reset;
@@ -100,10 +98,6 @@ module dma_axi64(clk,reset,scan_en,idle,INT,periph_tx_req,periph_tx_clr,periph_r
    wire                 slv_rd_port_num1;
    wire                 slv_wr_port_num1;
    
-   assign M0_AWID = 1'b0;
-   assign M0_WID  = 1'b0;
-   assign M0_ARID = 1'b0;
-
    wire [`ID_BITS-1:0]                  M0_AWID;
    wire [32-1:0]           M0_AWADDR;
    wire [`LEN_BITS-1:0]                 M0_AWLEN;
@@ -132,6 +126,10 @@ module dma_axi64(clk,reset,scan_en,idle,INT,periph_tx_req,periph_tx_clr,periph_r
    wire                                 M0_RLAST;
    wire                                 M0_RVALID;
    wire                                 M0_RREADY;
+   
+   assign M0_AWID = 1'b0;
+   assign M0_WID  = 1'b0;
+   assign M0_ARID = 1'b0;
    
    
 
