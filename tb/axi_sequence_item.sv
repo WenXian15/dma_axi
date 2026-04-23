@@ -22,6 +22,10 @@ class axi_sequence_item#(d_width = 16, a_width = 16) extends uvm_sequence_item;
     //  Group: Constraints
     constraint b_size_val { 8*(2**b_size) <= d_width; }
 
+    constraint data_val {
+        foreach (data[i,j]) data[i][j] inside { [8'h01 : 8'hFF] };
+    }
+
     constraint data_size {
         /*  solve order constraints  */
         solve b_len before data;

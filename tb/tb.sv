@@ -26,9 +26,12 @@ import uvm_pkg::*;
 `include "tb/dma_memrd_seq.sv"
 `include "tb/vseqr_base.sv"
 `include "tb/vseq_base.sv"
+`include "tb/vseq_single_beat.sv"
+`include "tb/vseq_multi_beat_burst.sv"
 `include "tb/my_environment.sv"
 `include "tests/test_base.sv"
-`include "tests/dma_test.sv"
+`include "tests/test_single_beat.sv"
+`include "tests/test_multi_beat_burst.sv"
 
 module tb;
     bit clk;
@@ -159,7 +162,7 @@ module tb;
         // Broad set so vseq_base (running on vseqr_base) can also fetch apb_vif for clock waits
         uvm_config_db#(virtual apb_if)::set(null, "uvm_test_top.env.vseqr_base_inst",         "apb_vif", u0_apb_if);
 
-        run_test("dma_test");
+        run_test("test_single_beat");
     end
 
     initial begin

@@ -59,7 +59,7 @@ endclass  : apb_driver
             apb_vif.psel <= 0;
             apb_vif.penable <= 0;
             `uvm_info(get_type_name(), $sformatf("APB Transaction Completed: ADDR=0x%h, WRITE=%0b, WDATA=0x%h, RDATA=0x%h", req.paddr, req.pwrite, req.pwdata, req.prdata), UVM_LOW);
-            seq_item_port.item_done(req);  // return item with prdata populated
+            seq_item_port.item_done();  // return item with prdata populated
             repeat(10) @(apb_vif.master_cb);
         end
     endtask

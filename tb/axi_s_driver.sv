@@ -280,7 +280,7 @@ task axi_s_driver::send_read_data();
     bit isAligned;
     int c;
     bit err;
-    `uvm_info("DEBUG_S", "Inside send_write_data", UVM_LOW)
+    `uvm_info("DEBUG_S", "Inside send_read_data", UVM_LOW)
     addr_1 = s_rtrans.addr;
     no_bytes = 2**s_rtrans.b_size;
     total_bytes = no_bytes * (s_rtrans.b_len+1);

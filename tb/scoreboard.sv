@@ -39,10 +39,10 @@ class dma_scoreboard extends uvm_scoreboard;
         if (seqr == null)
             `uvm_fatal("SCBD", "dma_scoreboard.check_transfer(): seqr handle is null — not set by environment")
 
-        if (expected.size() != len) begin
+        if (expected.size() != len*8) begin
             `uvm_error("SCBD", $sformatf(
                 "check_transfer(): expected[] size (%0d) != len (%0d)",
-                expected.size(), len))
+                expected.size(), len*8))
             return;
         end
 
@@ -64,6 +64,10 @@ class dma_scoreboard extends uvm_scoreboard;
                     "Mismatch at dest+%0d (0x%08h): got 0x%02h, expected 0x%02h",
                     i, dest + i, rsp.data[i], expected[i]))
                 errors++;
+            end else begin
+                `uvm_info("SCBD", $sformatf(
+                    "Match at dest+%0d (0x%08h): got 0x%02h, expected 0x%02h",
+                    i, dest + i, rsp.data[i], expected[i]), UVM_LOW)
             end
         end
 

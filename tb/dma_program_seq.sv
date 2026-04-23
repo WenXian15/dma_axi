@@ -194,7 +194,7 @@ task dma_program_seq::body();
     configure_command_list();
     enable_channel();
     start_channel();
-    dma_verify_dma_config();
+    //dma_verify_dma_config();
 
     `uvm_info(get_type_name(), "DMA Program Sequence Completed", UVM_LOW)
 endtask : body

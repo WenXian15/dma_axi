@@ -34,6 +34,6 @@ task dma_memrd_seq::body();
     // Put request into sequencer's mem_req_fifo for the driver to service
     seqr.mem_req_fifo.analysis_export.write(req);
 
-    `uvm_info(get_type_name(), $sformatf("Pre-loaded %0d bytes at src=0x%08h", req.len, req.addr), UVM_LOW)
+    `uvm_info(get_type_name(), $sformatf("Pre-loaded %8h of %0d bytes at src=0x%08h", req.data, req.len, req.addr), UVM_LOW)
 
 endtask : body

@@ -1,4 +1,4 @@
-class dma_test extends test_base;
+class test_end_to_end extends test_base;
     `uvm_component_utils(dma_test)
 
     vseq_base vseq;

@@ -1,0 +1,2 @@
+class vseq_interrupt_retrigger extends vseq_base;
+endclass : vseq_interrupt_retrigger

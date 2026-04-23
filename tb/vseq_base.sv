@@ -41,6 +41,11 @@ class vseq_base extends uvm_sequence #(uvm_sequence_item);
         rdata = rd_seq.rdata;
     endtask : apb_rd
 
+    // Hook - child classes override this to control randomization
+    virtual task do_randomize();
+        assert(program_seq.randomize()); // default: fully rnadom
+    endtask : do_randomize
+
     task body();
         int          poll_count;
         logic [31:0] rawstat;
@@ -58,7 +63,7 @@ class vseq_base extends uvm_sequence #(uvm_sequence_item);
         // Step 2: Randomize transfer params with constraints to ensure valid transfer
         // Add constraints to make debugging easier: fixed values for first runs
         // Comment out the line below and uncomment the fixed values for debugging
-        assert(program_seq.randomize());
+        do_randomize();
         // Uncomment the next 3 lines for fixed-value debugging
         //program_seq.src = 32'h1000_1000;
         //program_seq.dest = 32'h2000_1000;
@@ -85,8 +90,9 @@ class vseq_base extends uvm_sequence #(uvm_sequence_item);
         program_seq.start(p_sequencer.apb_seqr);
         `uvm_info("VSEQ", "DMA programming sequence completed", UVM_LOW)
         // Allow a few cycles for the DMA to begin issuing AXI transactions
-        repeat(20) @(posedge apb_vif.clk);
+        repeat(40) @(posedge apb_vif.clk);
 
+        /*
         // DIAGNOSTICS: Read back key registers to verify programming
         `uvm_info("VSEQ", "--- Register readback diagnostics ---", UVM_LOW)
         apb_rd(`CMD_REG0_ADDR,       readback);
@@ -110,7 +116,7 @@ class vseq_base extends uvm_sequence #(uvm_sequence_item);
         apb_rd(`INT_RAWSTAT_REG_ADDR, readback);
         `uvm_info("VSEQ", $sformatf("INT_RAWSTAT (pre-poll): got=0x%08h", readback), UVM_LOW)
         `uvm_info("VSEQ", "--- End register readback ---", UVM_LOW)
-
+        */
 
         // Step 6: Poll INT_RAWSTAT[0] (ch_end) until set or timeout
         `uvm_info("VSEQ", "Polling for DMA completion (INT_RAWSTAT[0])...", UVM_LOW)
@@ -160,7 +166,7 @@ class vseq_base extends uvm_sequence #(uvm_sequence_item);
             bit [7:0]  expected [];
             expected = new[nbytes];
             foreach (expected[i]) expected[i] = i[7:0]; // same pattern as dma_memrd_seq
-            p_sequencer.scbd.check_transfer(program_seq.dest, nbytes, expected);
+            p_sequencer.scbd.check_transfer(program_seq.dest, program_seq.len, expected);
         end
 
     endtask : body
